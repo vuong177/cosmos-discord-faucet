@@ -113,7 +113,7 @@ async def balance_request(message, testnet: dict):
         else:
             reply = f'❗ Expected `{ADDRESS_PREFIX}` prefix'
     except Exception:
-        reply = '❗ gaia could not verify the address'
+        reply = '❗  could not verify the address'
     await message.reply(reply)
 
 
@@ -289,10 +289,7 @@ async def token_request(message, testnet: dict):
                 logging.info('%s requested tokens for %s in %s',
                              requester, address, testnet['name'])
                 now = datetime.datetime.now()
-                if testnet["block_explorer_tx"]:
-                    await message.reply(f'✅  <{testnet["block_explorer_tx"]}{transfer}>')
-                else:
-                    await message.reply(f'✅ Hash ID: {transfer}')
+                await message.reply(f'✅ Hash ID: {transfer}')
                 # Get faucet balance and save to transaction log
                 balance = await get_faucet_balance(testnet)
                 await save_transaction_statistics(f'{now.isoformat(timespec="seconds")},'
