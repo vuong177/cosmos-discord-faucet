@@ -61,7 +61,6 @@ help_msg = '**List of available commands:**\n' \
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 
-
 async def save_transaction_statistics(transaction: str):
     """
     Transaction strings are already comma-separated
@@ -268,7 +267,7 @@ async def token_request(message, testnet: dict):
             await message.reply(f'❗ Expected `{ADDRESS_PREFIX}` prefix')
             return
     except Exception:
-        await message.reply('❗ gaia could not verify the address')
+        await message.reply('❗ could not verify the address')
         return
 
     requester = message.author
@@ -341,9 +340,7 @@ async def on_message(message):
         return
 
     # Notify users of vega shutdown
-    if message.content[0] == ('$') :
-        await message.reply('The Vega testnet is no longer active as of April 14, 2022. '
-                            'Please use Theta instead.')
+    if message.content[0] != ('$') :
         return
 
     # Respond to commands
