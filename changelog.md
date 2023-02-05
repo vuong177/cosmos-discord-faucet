@@ -42,5 +42,5 @@
 ## v0.1
 
 - First release based on [cosmos-discord-faucet](https://github.com/c29r3/cosmos-discord-faucet).
-- Calls to cosmospy library were replaced with calls to gaiad (which must be initialized in the system for this software to work)
+- Calls to cosmospy library were replaced with calls to miaglood (which must be initialized in the system for this software to work)
 - The address prefix has been changed to `cosmos`.

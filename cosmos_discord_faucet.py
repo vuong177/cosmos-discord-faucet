@@ -48,7 +48,7 @@ REJECT_EMOJI = '🚫'
 
 help_msg = '**List of available commands:**\n' \
     '1. Request tokens through the faucet:\n' \
-    f'`$request [cosmos address] {TESTNET_OPTIONS}`\n\n' \
+    f'`$request [ address] {TESTNET_OPTIONS}`\n\n' \
     '2. Request the faucet and node status:\n' \
     f'`$faucet_status {TESTNET_OPTIONS}`\n\n' \
     '3. Request the faucet address: \n' \
@@ -58,8 +58,8 @@ help_msg = '**List of available commands:**\n' \
     '5. Request the address balance:\n' \
     f'`$balance [cosmos address] {TESTNET_OPTIONS}`'
 
-
-client = discord.Client()
+intents = discord.Intents.all()
+client = discord.Client(intents=intents)
 
 
 async def save_transaction_statistics(transaction: str):
@@ -341,7 +341,7 @@ async def on_message(message):
         return
 
     # Notify users of vega shutdown
-    if message.content[0] == ('$') and 'vega' in message.content.lower():
+    if message.content[0] == ('$') :
         await message.reply('The Vega testnet is no longer active as of April 14, 2022. '
                             'Please use Theta instead.')
         return
