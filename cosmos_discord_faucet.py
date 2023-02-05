@@ -239,10 +239,6 @@ def check_daily_cap(testnet: dict):
         testnet['day_tally'] = delta
         return True
 
-    # Check tally
-    if testnet['day_tally'] + delta > int(testnet['daily_cap']):
-        return False
-
     testnet['day_tally'] += delta
     return True
 
