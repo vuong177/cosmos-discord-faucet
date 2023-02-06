@@ -109,7 +109,7 @@ async def balance_request(message, testnet: dict):
                 reply = reply + tabulate(balance)
                 reply = reply + '\n```\n'
             except Exception:
-                reply = '❗ gaia could not handle your request'
+                reply = '❗ could not handle your request'
         else:
             reply = f'❗ Expected `{ADDRESS_PREFIX}` prefix'
     except Exception:
@@ -136,7 +136,7 @@ async def faucet_status(message, testnet: dict):
                 f'```'
             reply = status
     except Exception:
-        reply = '❗ gaia could not handle your request'
+        reply = '❗could not handle your request'
     await message.reply(reply)
 
 
@@ -165,7 +165,7 @@ async def transaction_info(message, testnet: dict):
                 f'Height:  {res["height"]}\n```'
 
         except Exception:
-            reply = '❗ gaia could not handle your request'
+            reply = '❗could not handle your request'
     else:
         reply = f'❗ Hash ID must be 64 characters long, received `{len(hash_id)}`'
     await message.reply(reply)
